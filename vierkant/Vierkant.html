@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    breedte
+    <input id="Wdiv" type="number" name="width" onchange="change()"/>
+    hoogte
+    <input id="Hdiv" type="number" name="height" onchange="change()"/>
+
+    <select id="Dkleur" name="kleur" onchange="change()">
+      <option value="blue">blauw</option>
+      <option value="black">zwart</option>
+      <option value="orange">oranje</option>
+    </select>
+
+ <div id="moveDiv">
+
+</div>
+
+<br/>
+
+<div id="moveDiv2">
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+function change(){
+
+  var width = document.getElementById("Wdiv").value;
+  var height = document.getElementById("Hdiv").value;
+  var color = document.getElementById('Dkleur').value;
+  var id = "moveDiv";
+
+
+for (var i = 0; i < 2; i++) {
+  if (i == 1) {
+    id = "moveDiv2"
+  }
+
+  document.getElementById(id).style.width = width + "px";
+  document.getElementById(id).style.height = height + "px";
+  document.getElementById(id).style.backgroundColor = color;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+// document.getElementById('moveDiv').style.width = width + "px";
+// document.getElementById('moveDiv').style.height = height + "px";
+// document.getElementById('moveDiv').style.backgroundColor = color;
+//
+//
+// document.getElementById('moveDiv2').style.width = width + "px";
+// document.getElementById('moveDiv2').style.height = height + "px";
+// document.getElementById('moveDiv2').style.backgroundColor = color;
+
+
+
+</script>
+
+
+  </body>
+</html>

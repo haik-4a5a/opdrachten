@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input id='invoer' type="text" name="invoer" value="invoer"></input>
+<button type="button" name="button" onclick="replace()">klik hier</button>
+
+<div id="demo">
+
+</div>
+
+
+
+<input id='invoer2' type="text" name="invoer" value="invoer"></input>
+<button type="button2" name="button" onclick="replace2()">klik hier2</button>
+
+<div id="demo2">
+
+</div>
+
+    <script>
+
+
+function replace(){
+var text = document.getElementById('invoer').value;
+
+var text2 = text.replace(/a/g, "!");
+var text3 = text2.replace(/e/g, "@");
+var text4 = text3.replace(/o/g, "#");
+var text5 = text4.replace(/u/g, "$");
+var text6 = text5.replace(/i/g, "%");
+ document.getElementById("demo").innerHTML = text6;
+
+};
+
+
+
+
+
+
+function replace2(){
+var text = document.getElementById('invoer2').value;
+
+var text2 = text.replace(/a/g, "&");
+var text3 = text2.replace(/e/g, "*");
+var text4 = text3.replace(/o/g, "+");
+var text5 = text4.replace(/u/g, "=");
+var text6 = text5.replace(/i/g, "-");
+document.getElementById("demo2").innerHTML = text6;
+
+};
+
+
+    </script>
+  </body>
+</html>
