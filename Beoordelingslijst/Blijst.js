@@ -18,9 +18,25 @@ switch (true) {
     break;
   default:
 
-function manier1() {
+  function wCijfer2(){
 
-}
+
+                if(cijfer > 0 && cijfer < 50){
+                    document.getElementById('resultaat').innerHTML+="<br>"+ "De beoordeling is een onvoldoende want + een ";
+                  }else if(cijfer > 49 && cijfer < 60){
+                    document.getElementById('resultaat').innerHTML+="<br>"+"De beoordeling is matig, want + een ";
+
+                }else if(cijfer > 59 && cijfer < 75){
+                    document.getElementById('resultaat').innerHTML+="<br>"+"De beoordeling is een voldoende,want " + "een";
+
+                }else if(cijfer > 74 && cijfer < 101){
+                    document.getElementById('resultaat').innerHTML+="<br>"+"De beoordeling is goed, want + een";
+
+                }else{
+                    document.getElementById('resultaat').innerHTML+="<br>"+"U voert een verkeerde cijfer in";
+
+                }
+            }
 
 
 }
