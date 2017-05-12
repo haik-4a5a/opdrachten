@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee>
+        <id></id>
+        <firstname></firstname>
+        <lastname></lastname>
+        <date_of_birth></date_of_birth>
+        <salary_scale></salary_scale>
+    </employee>
+</employees>
