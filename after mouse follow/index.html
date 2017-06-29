@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>rondje</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        body {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        #rondje {
+            width: 75px;
+            height: 75px;
+            background-color: #FF3333;
+            position: absolute;
+            border-radius: 50%;
+            transition-property: transform;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rondje"></div>
+
+    <script>
+        setRandomColor();
+        var item = document.querySelector("#rondje");
+        var itemRect = item.getBoundingClientRect();
+        // console.log(i);
+
+        document.addEventListener("mousemove", followMouse, false);
+
+
+        function followMouse(e) {
+
+            var xPos = e.pageX - itemRect.width / 2;
+            var yPos = e.pageY - itemRect.height / 2;
+
+
+            setTimeout(function() {
+
+                item.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, " + 0 + "px)";
+            }, 1000)
+
+        }
+
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+
+
+        function setRandomColor() {
+            setInterval(function() {
+                $("#rondje").css("background-color", getRandomColor());
+            }, 700);
+
+        }
+    </script>
+</body>
+
+</html>

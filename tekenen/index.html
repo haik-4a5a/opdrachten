@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>rondje</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        body {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        #rondje {
+            width: 75px;
+            height: 75px;
+            background-color: #fff;
+            position: absolute;
+            border-radius: 50%;
+            /*transition-timing-function: ease-in-out;*/
+            transition-property: transform;
+        }
+
+        .rondje {
+            width: 75px;
+            height: 75px;
+            background-color: #FFF;
+            position: absolute;
+            border-radius: 50%;
+            /*transition-timing-function: ease-in-out;*/
+            transition-property: transform;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rondje"></div>
+
+    <script>
+        var item = document.querySelector("#rondje");
+        var itemRect = item.getBoundingClientRect();
+
+        document.addEventListener("mousemove", followMouse, false);
+        document.addEventListener("mousedown", draw);
+
+
+
+        function followMouse(e) {
+
+            var xPos = e.pageX - itemRect.width / 2;
+            var yPos = e.pageY - itemRect.height / 2;
+
+            item.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, " + 0 + "px)";
+        }
+
+
+        function draw(e) {
+            var xPos = e.pageX - itemRect.width / 2;
+            var yPos = e.pageY - itemRect.height / 2;
+            var div = document.createElement("div");
+            div.style.borderRadius = "50%";
+            div.style.width = "75px";
+            div.style.height = "75px";
+            div.style.background = getRandomColor();
+            div.style.top = yPos + "px";
+            div.style.left = xPos + "px";
+            div.style.position = "absolute";
+
+
+            document.body.appendChild(div);
+        }
+
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+    </script>
+</body>
+
+</html>

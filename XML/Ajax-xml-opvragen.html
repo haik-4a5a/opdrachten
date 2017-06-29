@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-      <input id="landcode" type="number" name="" value="">
-      <br><textarea id="antwoord" name="name" rows="8" cols="80"></textarea>
-      <br><button id="knop" type="submit" name="button">vraag het land op</button>
-      <br><div id="netjes"></div>
+
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+</head>
+
+<body>
+  <input id="landcode" type="number" name="" value="">
+  <br><textarea id="antwoord" name="name" rows="8" cols="80"></textarea>
+  <br><button id="knop" type="submit" name="button">vraag het land op</button>
+  <br>
+  <div id="netjes"></div>
 
 
 
@@ -16,30 +19,46 @@
 
 
 
-    <script type="text/javascript">
-      function getResponse(url) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url, false);
-        xhr.send();
+  <script type="text/javascript">
+    function getResponse(url) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, false);
+      xhr.send();
 
-        return xhr.responseText;
+      return xhr.responseText;
+    }
+
+    document.getElementById("knop").addEventListener("click", function() {
+      var code = document.getElementById("landcode").value;
+      var land = getResponse("http://localhost/github%20Local/opdrachten/webservices/api-countries.php?output=xml&id=" + code);
+      var landTabel = getResponse("http://localhost/github%20Local/opdrachten/webservices/api-countries.php?amount=100");
+
+      document.getElementById("antwoord").innerHTML = land;
+      var str = land.replace(/[0-9]/g, " ");
+      document.getElementById("netjes").innerHTML = str;
+
+
+
+      var jsonObject2 = JSON.parse(landTabel);
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(land, "text/xml");
+      var tds = xmlDoc.getElementsByTagName("id")[0].textContent;
+      // var xmlDoc = land.getElementsByTagName("id")[0];
+      console.log(jsonObject2);
+
+      var htmlTable = '<table border="1"><tr><th>name</th><th>company</th></tr>';
+
+      for (var i = 1; i < 48; i++) {
+
+        htmlTable += "<tr><td>" + jsonObject2.employees + "</td><td>" + jsonObject2.employees[i].company + "</td></tr>";
       }
 
-document.getElementById("knop").addEventListener("click", function() {
-  var code = document.getElementById("landcode").value;
- var land = getResponse("https://webservices-demo-finewebdev.c9users.io/api-countries.php?output=xml&id=" + code);
-
-document.getElementById("antwoord").innerHTML = land;
-
-
- console.log(code);
-
-})
-
-var code;
+      htmlTable += "</table>";
 
 
 
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

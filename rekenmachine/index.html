@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Calculate</title>
+
+    <!-- Better to use external stylesheet. -->
+    <style>
+        body {
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        .result {
+            padding: 1em;
+            background-color: #333;
+            color: #ccc;
+        }
+
+        #result {
+            font-size: 120%;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculate</h1>
+
+<!--    <form>-->
+        <p>
+          <label for="numbers">Numbers:</label>
+          <input type="text" id="numbers" name="numbers">
+        </p>
+        <p>
+          <label for="operation">Operation:</label>
+          <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+        </p>
+        <button type="button" id="calculate" onclick="calculate()">Calculate</button>
+        <p class="result">Result: <strong id="result">-</strong></p>
+<!--    </form>-->
+
+    <h2>Test Examples</h2>
+    <pre>
+    Numbers:    30, 2, 5
+    Operation:  +
+    Result:     37        ( = 30 + 2 + 5 )
+
+    Numbers:    30, 2, 5
+    Operation:  -
+    Result:     23        ( = 30 - 2 - 5 )
+
+    Numbers:    30, 2, 5
+    Operation:  *
+    Result:     300       ( = 30 * 2 * 5 )
+
+    Numbers:    30, 2, 5
+    Operation:  /
+    Result:     3         ( = 30 / 2 / 5 )
+    </pre>
+
+    <!-- JavaScript - better to put code in external JS file -->
+    <script>
+
+
+        // Write your JS code here
+        function calculate() {
+
+
+        var input = document.getElementById('numbers').value;
+        var array = input.split(',');
+        var select = document.getElementById("operation");
+        var strSelect = select.options[select.selectedIndex].value;
+
+
+        for (var i = 0; i < array.length; i++) {
+        array[i] += eval("strSelect");
+        console.log();
+        }
+
+        }
+
+
+    </script>
+</body>
+</html>
