@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>row total</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var tabel = [
+      [9, 21, 14],
+      [11, 5, 27],
+      [29, 17, 6],
+    ];
+
+
+    function count(row, array) {
+      // console.log(row);
+      var result = 0;
+
+      for (var i = 0; i < array[row].length; i++) {
+        result += array[row][i];
+      }
+
+
+      return result;
+    }
+    var totaal = count(1, tabel);
+    console.log(totaal);
+  </script>
+</body>
+
+</html>
