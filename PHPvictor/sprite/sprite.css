@@ -1,0 +1,27 @@
+.mario-sprite{
+  background-image: url(mario.png);
+  width: 277px;
+  height: 323px;
+  display: inline-block;
+background-repeat: no-repeat;
+float: left;
+}
+
+
+
+.mario-stand {
+    background-position: 4px -1px;
+}
+
+.mario-think{
+  background-position: -284px -19px;
+}
+
+.mario-jump{
+background-position: -553px -1px;
+}
+
+.mario-hammer{
+  background-position: 7% 134%;
+padding: 47px;
+}
